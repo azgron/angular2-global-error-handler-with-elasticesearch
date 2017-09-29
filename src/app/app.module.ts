@@ -3,7 +3,7 @@ import {ErrorHandler, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import {GlobalErrorHandler} from "./services/global-error-handler/global-error-handler.service";
+import {GlobalErrorHandlerService} from "./services/global-error-handler/global-error-handler.service";
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import {GlobalErrorHandler} from "./services/global-error-handler/global-error-h
   providers: [
     {
       provide: ErrorHandler,
-      useClass: GlobalErrorHandler
+      useClass: GlobalErrorHandlerService
     }
   ],
   bootstrap: [AppComponent]

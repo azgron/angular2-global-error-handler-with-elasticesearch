@@ -2,9 +2,10 @@ import {ErrorHandler, Injectable, Injector} from '@angular/core';
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import * as StackTrace from 'stacktrace-js';
 import {LoggingToElasticService} from '../logging-to-elastic/logging-to-elastic.service';
+import {LogToServerInterface} from './log-to-server.interface';
 
 @Injectable()
-export class GlobalErrorHandler implements ErrorHandler {
+export class GlobalErrorHandlerService implements ErrorHandler {
   constructor(private injector: Injector) {
   }
 
@@ -24,7 +25,7 @@ export class GlobalErrorHandler implements ErrorHandler {
         }).join('\n');
 
       // log on the server
-      loggingService.log({message, url, stack: stackString});
+      loggingService.log({message, url, stack: stackString, level: 'ERROR'});
 
     });
 

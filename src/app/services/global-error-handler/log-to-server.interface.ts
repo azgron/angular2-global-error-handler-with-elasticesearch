@@ -6,5 +6,5 @@ export interface LogToServerInterface {
 }
 
 export interface LoggingToServerService {
-  log: (log: LogToServerInterface) => (Promise<void>);
+  log: (log: LogToServerInterface) => void;
 }
