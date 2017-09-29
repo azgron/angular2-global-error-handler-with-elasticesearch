@@ -25,7 +25,7 @@ export class GlobalErrorHandlerService implements ErrorHandler {
         }).join('\n');
 
       // log on the server
-      loggingService.log({message, url, stack: stackString, level: 'ERROR'});
+      loggingService.log({message, url, stack: stackString, level: 'ERROR', versionInfo: navigator.appVersion});
 
     });
 

@@ -3,6 +3,8 @@ export interface LogToServerInterface {
   level: string;
   url: string;
   stack: string;
+  user?: string,
+  versionInfo: string;
 }
 
 export interface LoggingToServerService {
