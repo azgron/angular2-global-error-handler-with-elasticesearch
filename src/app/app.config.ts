@@ -6,6 +6,7 @@ export const AppConfig = {
     indexLogName: 'index_name',
     indexType: '',
     bulkSize: 100,
-    level: 'info'
+    level: 'info',
+    maxStackFrames: 10,
   }
 };

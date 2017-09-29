@@ -3,6 +3,7 @@ import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import * as StackTrace from 'stacktrace-js';
 import {LoggingToElasticService} from '../logging-to-elastic/logging-to-elastic.service';
 import {LogToServerInterface} from './log-to-server.interface';
+import {AppConfig} from "../../app.config";
 
 @Injectable()
 export class GlobalErrorHandlerService implements ErrorHandler {
@@ -19,7 +20,9 @@ export class GlobalErrorHandlerService implements ErrorHandler {
     // get the stack trace, lets grab the last 10 stacks only
     StackTrace.fromError(error).then(stackframes => {
       const stackString: string = stackframes
-        .splice(0, 20)
+        .splice(
+          Math.max(0, stackframes.length - AppConfig.loggingToElasticService.maxStackFrames),
+          stackframes.length)
         .map(function (sf) {
           return sf.toString();
         }).join('\n');
