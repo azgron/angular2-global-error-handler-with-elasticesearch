@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {LoggingToServerService, LogToServerInterface} from '../global-error-handler/log-to-server.interface';
 import {AppConfig} from '../../app.config';
-import ConfigOptions = Elasticsearch.ConfigOptions;
-import Client = Elasticsearch.Client;
+import {ConfigOptions, Client} from 'elasticsearch'
 import * as _ from 'lodash';
 
 @Injectable()

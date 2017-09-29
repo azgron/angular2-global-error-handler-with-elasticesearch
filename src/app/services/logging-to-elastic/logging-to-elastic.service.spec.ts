@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
+import {LoggingToElasticService} from './logging-to-elastic.service';
 
-import { LoggingToElasticService } from './logging-to-server.service';
 
 describe('LoggingToElasticService', () => {
   beforeEach(() => {
